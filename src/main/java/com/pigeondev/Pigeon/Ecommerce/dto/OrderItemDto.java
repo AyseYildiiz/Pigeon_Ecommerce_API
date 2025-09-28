@@ -21,7 +21,7 @@ public class OrderItemDto {
     private BigDecimal Price;
     private String status;
     private UserDto user;
-    private ProductDto order;
+    private ProductDto product;
     private LocalDateTime createdAt;
 
 }
