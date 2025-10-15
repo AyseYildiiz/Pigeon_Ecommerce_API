@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonIgnoreProperties(ignoreUnknown= true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 @AllArgsConstructor
 @NoArgsConstructor
 public class AddressDto {
@@ -20,6 +20,6 @@ public class AddressDto {
     private String state;
     private String zipCode;
     private String country;
-    private UserDTO user;
+    private UserDto user;
     private LocalDateTime createdAt;
 }

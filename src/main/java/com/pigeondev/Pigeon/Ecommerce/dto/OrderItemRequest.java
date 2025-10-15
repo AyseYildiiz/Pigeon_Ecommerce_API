@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class OrderItemRequest {
-    private int productId;
+    private Long productId;
     private int quantity;
 
 }

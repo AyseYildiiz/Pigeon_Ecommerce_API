@@ -13,37 +13,31 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name="users")
+@Table(name = "users")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
+
+    @Column(name = "created_at")
+    private final LocalDateTime createdAt = LocalDateTime.now();
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
     @NotBlank(message = "Name is required")
     private String name;
-
-    @Column(unique=true)
+    @Column(unique = true)
     @NotBlank(message = "Email is required")
     private String email;
-
     @NotBlank(message = "Password is required")
     private String password;
-
-    @Column(name="phone_number")
+    @Column(name = "phone_number")
     @NotBlank(message = "Phone number is required")
     private String phoneNumber;
     private UserRole role;
-
-    @OneToMany(mappedBy = "users", fetch= FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<OrderItem> orderItemList;
-
-    @OneToOne(fetch = FetchType.LAZY, cascade= CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Address adress;
-
-    @Column(name="created_at")
-    private final LocalDateTime createdAt = LocalDateTime.now();
 
 }
