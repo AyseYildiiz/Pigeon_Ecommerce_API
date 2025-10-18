@@ -62,19 +62,19 @@ public class EntityDtoMapper {
     }
 
     //Returns UserDto with address
-    public UserDto mapUserToDtoWithAddress(User user){
+    public UserDto mapUserToDtoWithAddress(User user) {
         UserDto userDto = mapUserToDtoBasic(user);
-        if(user.getAdress() != null){
-            AddressDto addressDto = mapAddressToDtoBasic(user.getAdress());
+        if (user.getAddress() != null) {
+            AddressDto addressDto = mapAddressToDtoBasic(user.getAddress());
             userDto.setAddress(addressDto);
         }
         return userDto;
     }
 
     //Returns OrderItemDto with products ordered
-    public OrderItemDto mapOrderItemToDtoWithProducts(OrderItem orderItem){
+    public OrderItemDto mapOrderItemToDtoWithProducts(OrderItem orderItem) {
         OrderItemDto orderItemDto = mapOrderItemToDtoBasic(orderItem);
-        if(orderItem.getProduct() != null){
+        if (orderItem.getProduct() != null) {
             ProductDto productDto = mapProductToDtoBasic(orderItem.getProduct());
             orderItemDto.setProduct(productDto);
         }
@@ -82,9 +82,9 @@ public class EntityDtoMapper {
     }
 
     //OrderItemDto with products and user with address
-    public OrderItemDto mapOrderItemToDtoWithProductsAndUser(OrderItem orderItem){
+    public OrderItemDto mapOrderItemToDtoWithProductsAndUser(OrderItem orderItem) {
         OrderItemDto orderItemDto = mapOrderItemToDtoWithProducts(orderItem);
-        if(orderItem.getUser() != null){
+        if (orderItem.getUser() != null) {
             UserDto userDto = mapUserToDtoWithAddress(orderItem.getUser());
             orderItemDto.setUser(userDto);
         }
@@ -92,13 +92,13 @@ public class EntityDtoMapper {
     }
 
     //UserDto with Address and Order Item History
-    public UserDto mapUserToDtoWithAddressAndOrderHistory(User user){
+    public UserDto mapUserToDtoWithAddressAndOrderHistory(User user) {
         UserDto userDto = mapUserToDtoWithAddress(user);
-        if(user.getOrderItemList() != null && !user.getOrderItemList().isEmpty()){
+        if (user.getOrderItemList() != null && !user.getOrderItemList().isEmpty()) {
             userDto.setOrderItemList(user.getOrderItemList()
                     .stream()
                     .map(this::mapOrderItemToDtoWithProducts)
-            .collect(Collectors.toList()));
+                    .collect(Collectors.toList()));
         }
         return userDto;
     }

@@ -20,7 +20,7 @@ public class AddressServiceImpl implements AddressService {
     @Override
     public Response saveAndUpdateAddress(AddressDto addressDto) {
         User user = userService.getLoginUser();
-        Address address = user.getAdress();
+        Address address = user.getAddress();
         if (address == null) {
             address = new Address();
             address.setUser(user);
@@ -33,7 +33,7 @@ public class AddressServiceImpl implements AddressService {
 
         addressRepo.save(address);
 
-        String message = user.getAdress() == null ? "Address successfully created" : "Address successfully updated";
+        String message = user.getAddress() == null ? "Address successfully created" : "Address successfully updated";
         return Response.builder()
                 .status(200)
                 .message(message)

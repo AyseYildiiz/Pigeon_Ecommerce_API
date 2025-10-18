@@ -24,7 +24,7 @@ public class AwsS3Service {
     @Value("${aws.s3.access}")
     private String awsS3AccessKey;
 
-    @Value("${aws.s3.access}")
+    @Value("${aws.s3.secret}")
     private String awsS3SecretKey;
 
     public String saveImageToS3(MultipartFile photo) {

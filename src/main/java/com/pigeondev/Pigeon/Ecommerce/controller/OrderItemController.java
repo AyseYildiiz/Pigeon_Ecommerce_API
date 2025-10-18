@@ -38,11 +38,11 @@ public class OrderItemController {
             @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime startDate,
             @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime endDate,
             @RequestParam(required = false) String status,
-            @RequestParam(required = false) Long itemId,
+            @RequestParam(required = false) Long id,
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "1000") int size) {
         Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "id"));
         OrderStatus orderStatus = status != null ? OrderStatus.valueOf(status.toUpperCase()) : null;
-        return ResponseEntity.ok(orderItemService.filterOrderItems(orderStatus, startDate, endDate, itemId, pageable));
+        return ResponseEntity.ok(orderItemService.filterOrderItems(orderStatus, startDate, endDate, id, pageable));
     }
 }
