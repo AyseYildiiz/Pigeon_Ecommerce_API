@@ -1,0 +1,22 @@
+npx create-react-app ReactAppName //creates React app
+
+npm i axios // azure 
+HTTP istekleri (API çağrıları) yapmak için kullanılır.
+Backend’e istek atmak (GET, POST, PUT, DELETE).
+JSON verisi çekmek/göndermek.
+
+npm i react-router-dom //
+Sayfa geçişleri (routing) için kullanılır.
+SPA (Single Page Application) mantığı sağlar.
+URL değişir ama sayfa yenilenmez.
+--react app runs
+
+getHeader
+--Because of our end points need to authantication we pass header 
+--It will authenticated on API
+--token in localStorage
+
+--API endpoints
+use axios.get or axios.post or ...
+give url correct endpoints
+if authentication needed use getHeader if content type is different change it 
