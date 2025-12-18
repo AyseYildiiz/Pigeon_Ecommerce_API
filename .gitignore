@@ -1,3 +1,16 @@
+# Backend
+backend/target/
+backend/.env
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+
+# IDE
+.idea/
+.vscode/
+
 HELP.md
 target/
 .mvn/wrapper/maven-wrapper.jar
